@@ -11,3 +11,9 @@ django-model-utils
 numpy
 pandas
 django-pandas
+beautifulsoup4
+jinja2
+PyYAML
+SQLAlchemy
+South
+amqplib
