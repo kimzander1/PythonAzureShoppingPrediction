@@ -7,3 +7,7 @@ django-extensions
 ipython[notebook]
 applicationinsights==0.10.0
 cortanaanalytics==0.0.4
+django-model-utils
+numpy
+pandas
+django-pandas
