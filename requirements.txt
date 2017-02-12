@@ -17,3 +17,5 @@ PyYAML
 SQLAlchemy
 South
 amqplib
+nose
+lxml
