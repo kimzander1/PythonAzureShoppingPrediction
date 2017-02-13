@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->  <!--<![endif]-->
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Muskegon, MI Meteorological Data &amp; WebCam</title>
+        <meta name="description" content="Information from NOAA-GLERL">
+        <meta name="viewport" content="width=device-width, user-scalable=1">
+
+        <!-- REQUIRED METADATA -->
+
+        <!-- NOAA Great Lakes Environmental Research Laboratory   -->
+        <!-- 4840 S. State Rd.                             -->
+        <!-- Ann Arbor, MI 48108-9719                             -->
+        <!-- 734-741-2235                                         -->
+        <!-- contact: www.glerl@noaa.gov                          -->
+        <!-- ==================================================== -->
+        <!--GLERL scientists approach research from a multidisciplinary,
+        collaborative perspective. Our vision is to build on our knowledge
+        and expertise to establish an ecological forecasting capability for the
+        Great Lakes. This effort involves predicting the effects of biological,
+        chemical, physical, and human-induced changes on ecosystems and their
+        components. GLERL research is organized into four integrated research
+        programs: Ecological Prediction, Aquatic Invasive Species, Physical
+        Environment Prediction, and Environmental Observing Systems. -->
+
+        <meta name="dc.title" content="" >
+        <meta name="dc.description" content="" >
+        <meta name="dc.date.created" content="" >
+        <meta name="dc.date.reviewed" content="" >
+        <meta name="dc.creator" content="US Department of Commerce, NOAA,
+              Great Lakes Environmental Research Laboratory, Cooperative
+              Institute for Limnology and Ecosystems Research" >
+        <meta name="dc.language" scheme="DCTERMS.RFC1766" content="EN-US" />
+
+        <!-- END REQUIRED METADATA -->
+
+        <!-- BEGIN BASE LIBRARIES -->
+
+        <!-- Will want to replace / with root after transitioning -->
+        <link rel="shortcut icon" href="/images/favicon.ico" />
+        <link rel="stylesheet" href="/css/normalize.css" />
+        <link rel="stylesheet" href="/css/main.css" />
+        <script src="/js/jquery/jquery.min.js"></script>
+        <!--<script src="/js/jquery-mobile/jquery.mobile.min.js"></script>
+        <script src="/js/jquery-mobile-datebox/jqm-datebox.core.min.js">
+        </script>-->
+        <link rel="stylesheet" href="/js/jqueryui/jquery-ui.css" />
+        <link rel="stylesheet" href="/js/jqueryui/jquery-ui.structure.css" />
+        <link rel="stylesheet" href="/js/jqueryui/jquery-ui.theme.css" />
+        <script src="/js/jqueryui/jquery-ui.js"></script>
+
+        <script type="text/javascript" src="http://dygraphs.com/dygraph-combined.js"></script>
+
+        <script src="/js/plugins.js"></script>
+        <script src="/js/main.js"></script>
+
+        <!-- END BASE LIBRARIES -->
+
+        <!-- BEGIN ADDITIONAL PAGE SPECIFIC LIBRARIES -->
+
+        <!-- END ADDITIONAL PAGE SPECIFIC LIBRARIES -->
+
+        <!-- BEGIN ANALYTICS -->
+
+        <!-- FOR NOAA -->
+        <script language="javascript" id="_fed_an_ua_tag" src="/js/analytics/Universal-Federated-Analytics.1.0.js?agency=NOAA&subagency=GLERL"></script>
+
+        <!-- END ANALYTICS -->
+
+    </head>
+
+    <body onload="init(null);">
+        <a href='#main-content' name='skipnav' class='visuallyhidden'>Skip to main content</a>
+
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong>
+            browser. Please <a href="http://browsehappy.com/">upgrade your
+            browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- BEGIN INTERFACE CONTENT -->
+
+        <!-- BEGIN HEADER -->
+
+        <div class="primaryWrapper" id="mainHeader" role='banner'>
+            <div id="glerlBannerNav">
+                <div id="glerlBannerInnerNav">
+                    <div id="glerlLogoContainer">
+                        <a class="logoLink" href="/">
+                            <!--<img id="glerlLogo" alt="Go to GLERL Home Page" height="75" src="/images/glerlLogoInvertNoDefSmall.png" />-->
+                            <img id="glerlLogo" alt="Go to GLERL Home Page" height="75" src="/images/GLERLLogo_white.png" />
+                        </a>
+                    </div>
+                    <div id="glerlDef">
+                        NOAA - Great Lakes Environmental Research Laboratory
+                    </div>
+                    <div id="noaaLogoOnlyContainer">
+                        <a class="logoLink" id="noaaLogoHead" href="http://www.noaa.gov/" target="_blank">
+                            <img alt="Link to NOAA Page" width="60" height="60" src="/images/noaa_white_rim_web.png" />
+                        </a>
+                    </div>
+                    <div id="headerNavBar" role='menubar'>
+                        <nav>
+							<a class="headerNavButton headerNavBarLink" href="/">Home</a>
+                            <a class="headerNavButton headerNavBarLink" href="/quickLinks.html">Quick Links</a>
+                            <a class="headerNavButton headerNavBarLink" href="/about/">About Us</a>
+                            <a class="headerNavButton headerNavBarLink" href="/res/">Research</a>
+                            <a class="headerNavButton headerNavBarLink" href="/data/">Data &amp; Products</a>
+                            <a class="headerNavButton headerNavBarLink" href="/pubs/">Publications</a>
+                            <a class="headerNavButton headerNavBarLink" href="/education/">Education</a>
+                        </nav>
+                    </div>
+                    <div id="socialMediaBar">
+                        <a class="socialMediaButton" href="https://www.facebook.com/noaa.glerl" target='_blank'>
+                            <img width="30" height="30" alt="Go to GLERL's Facebook Page" src="/images/fbIcon.png"/></a>
+                        <a class="socialMediaButton" href="https://twitter.com/NOAA_GLERL" target='_blank'>
+                            <img width="30" height="30" alt="Go to GLERL's Twitter Page" src="/images/twIcon.png"/></a>
+                        <a class="socialMediaButton" href="https://www.flickr.com/photos/noaa_glerl/" target='_blank'>
+                            <img width="30" height="30" alt="Go to GLERL's Flickr Photo Album" src="/images/flickrIcon.png"/></a>
+                        <a class="socialMediaButton" href="https://www.youtube.com/channel/UCkfyVwJfamXDTM1hWEwzrHw" target='_blank'>
+                            <img width="30" height="30" alt="Go to GLERL's YouTube Channel" src="/images/ytIcon.png"/></a>
+						<a class="socialMediaButton" href="https://noaaglerl.wordpress.com/" target='_blank'>
+                            <img width="30" height="30" alt="Go to GLERL's Blog" src="/images/WPiconRC.png"/></a>
+                    </div>
+
+                    <form id="glerlSearchBar" method="get" action="http://search.usa.gov/search" role='form'>
+						<input type="hidden"  name="v:project" value="firstgov" />
+						<input type="text" id="glerlSearchField" name="query" placeholder='Enter query here...' role='textbox' title="Enter a search query here and then click 'Search'"/><br />
+						<!--<fieldset>
+						<legend>Scope: </legend>
+						<input type="radio" name="affiliate" id="affiliate1" checked="checked" value="NOAA-GLERL" role='radio' aria-checked="true"/>
+						<label for="affiliate1">GLERL</label>
+						<input type="radio" name="affiliate" id="affiliate2" value="noaa.gov" role='radio' aria-checked="false"/>
+						<label for="affiliate2">NOAA</label>
+						</fieldset>-->
+						<label for="affiliate">Scope: </label>
+						<select name="affiliate" id="affiliate">
+							<option value="NOAA-GLERL">GLERL</option>
+							<option value="noaa.gov">NOAA</option>
+						</select>
+						<input type="submit" value="Search" class="glerlSearchButton" role='button'/>
+					</form>
+
+                </div>
+            </div>
+        </div>
+						<!-- END HEADER -->
+
+        <div class="primaryWrapper" id="mainContent" role='main'>
+            <div id="mainContentInner">
+                <a id='main-content'></a>
+                <!-- BEGIN MAIN CONTENT -->
+<!-- above text is from: www.glerl.noaa.gov/regularPageTemplate.html-->
+
+
+<style type="text/css">
+.red {
+   color: #CC0000;
+   font-style: italic;
+}
+.red2 {
+   color: #CC0000;
+   font-weight: bold;
+}
+.small {
+   font-size: 15px;
+}
+//a {text-decoration:none;}
+//a:hover {text-decoration:underline;}
+
+.narrower {line-height: 1.2em;}
+.narrower2 {line-height: 1.2em; font-size: 15px;}
+.narrower3 {line-height: 1.2em; font-size: 14px;}
+.narrower4 {line-height: 1.2em; font-size: 13px;}
+
+</style>
+
+<!-- END OF NEW HEADER - G. Lang -->
+
+
+
+
+
+
+
+<table align="center" bgcolor="#ffffff" border="0" cellspacing="0" cellpadding="0" width="60%" summary="">
+<tr>
+
+<td class="small" colspan="3" align="left">
+Back to <a href="../">Met Station Array Page</a><br>
+<!--<a href="../info.html">Info</a>&nbsp;|-->
+<a href="../mil/">Milwaukee</a>&nbsp;|
+<a href="../chi/">Chicago</a>&nbsp;|
+<a href="../mcy/">Michigan&nbsp;City</a>&nbsp;|
+<a href="../shv/">South Haven</a>&nbsp;|
+Muskegon&nbsp;|
+<a href="../apn/">Alpena</a>&nbsp;|
+<a href="../tbi/">Thunder&nbsp;Bay&nbsp;Island</a>&nbsp;|
+<a href="../tol2/">Toledo&nbsp;Light&nbsp;#2</a>
+<h1 align="left">Real-Time Meteorological Observation Network<br><span class="red">Muskegon, MI</span>
+<span class="small">&nbsp;(MKGM4)&nbsp;&nbsp;43&deg; 13&acute; 40&quot; N, &nbsp; 86&deg; 20&acute; 20&quot; W</span></h1>
+See <a href="metadata.html">Metadata File</a> for full description of instruments and parameters, as well as site maps.
+<hr noshade width="70%">
+   <strong>Conditions at 8:00 pm EST on 02/12/2017 (DOY 044 01:00 GMT)</strong>
+   <br><span class="small">(Updated at about 03,13,23,33,43,53 minutes past the hour)</span>
+   </td></tr>
+   <tr><td bgcolor="#EBF6FF" valign="top" width="425">
+<!--   <img src="/images/transparent.gif" width="425" height="1" border="0" alt="">-->
+   <div class="centeredContent">
+   <table class="small" border="1" width="100%" summary="">
+<tr><td align="left"><strong>Wind Speed:</strong> &nbsp; </td>
+     <td>27.8&nbsp;kts&nbsp;&nbsp;&nbsp;(14.3&nbsp;m/s)</td></tr>
+   <tr><td align="left"><strong>Max Wind Speed:</strong> &nbsp; </td>
+     <td>31.3 kts&nbsp;&nbsp;&nbsp;(16.1&nbsp;m/s)</td></tr>
+   <tr><td align="left"><strong>Wind Direction:</strong> &nbsp; </td>
+     <td>318&#176; (NW)</td></tr>
+   <tr><td align="left"><strong>Air Temperature:</strong> &nbsp; </td>
+     <td>35.1 &#176;F &nbsp; (1.7 &#176;C)</td></tr>
+<tr><td align="left"><strong>Wind Chill:</strong> &nbsp; </td>
+      <td>21.4 &#176;F &nbsp; (-5.9 &#176;C)</td></tr>
+      <tr><td align="left"><strong>Dew Point:</strong> &nbsp; </td>
+	<td>23.7 &#176;F &nbsp; (-4.6 &#176;C)</td></tr>
+      <tr><td align="left"><strong>Relative Humidity:</strong> &nbsp; </td>
+	<td>63.0 %</td></tr>
+      <tr><td align="left"><strong>Station&nbsp;Pressure:</strong> &nbsp; </td>
+	<td>29.527 in Hg. &nbsp; (999.9 mb)</td></tr>
+      <tr><td align="left"><strong>Sea&nbsp;Level&nbsp;Pressure:</strong> &nbsp; </td>
+	<td>30.199 in Hg. &nbsp; (1022.6 mb)</td></tr>
+      <tr><td align="left"><strong>PAR:</strong> &nbsp; </td>
+	<td>2 uEinst/m<sup>2</sup>/sec</td></tr>
+<tr><td colspan="2" align="center"><a href="../plot_3hr.php?site=mkg&amp;units=e#metdata" title="mkg 3 hr Data">Data</a> &amp;
+<a href="../plot_3hr.php?site=mkg&amp;units=e#top" title="mkg 3 hr Plots">Plots</a> of Previous 3 Hours (2 minute increments)</td></tr>
+<tr><td colspan="2" align="center"><a href="../plot_5dy.php?site=mkg&amp;units=e#metdata" title="mkg 5 day Data">Data</a> &amp;
+<a href="../plot_5dy.php?site=mkg&amp;units=e#top" title="mkg 5 day Data">Plots</a> of Previous 5 Days (hourly increments)</td></tr>
+<tr><td colspan="2" align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="windrose1dy.png">1&nbsp;Day&nbsp;Windrose&nbsp;Plot</a>,&nbsp;<a href="windrose5dy.png">5&nbsp;Day&nbsp;Windrose&nbsp;Plot</a>,&nbsp;<a href="http://www.wcc.nrcs.usda.gov/climate/windrose.html">(explanation)</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table></div>
+</td>
+<!-- <td rowspan="2" bgcolor="#ffffff" valign="top" width="1">&nbsp;</td>-->
+ <td rowspan="2" bgcolor="#ffffff" align="left" valign="top" width="425">
+ <div class="centeredContent">
+         <table class="small" cellspacing="2" cellpadding="0" border="0" width="410" summary="">
+         <tr><td colspan="2" align="center">
+         <span class="small">Click on image to enlarge<br>(images updated 6X per hour)
+	 <br><a href="webcaminfo.txt">Webcam Location &amp; Info</a><br>
+         </td></tr>
+	    <tr><td><a href="mkg01.jpg"><img src="mkg01-tn.jpg" 
+	    width="205" border="1" alt="[Live Webcam Image from Muskegon, MI Met Station Camera 1]"></a></td>
+	    <td><a href="mkg02.jpg"><img src="mkg02-tn.jpg" 
+	    width="205" border="1" alt="[Live Webcam Image from Muskegon, MI Met Station Camera 2]"></a></td></tr>
+	    <tr><td><a href="mkg05.jpg"><img src="mkg05-tn.jpg" 
+	    width="205" border="1" alt="[Live Webcam Image from Muskegon, MI Met Station Camera 5]"></a></td>
+	    <td><a href="mkg03.jpg"><img src="mkg03-tn.jpg" 
+	    width="205" border="1" alt="[Live Webcam Image from Muskegon, MI Met Station Camera 3]"></a></td></tr>
+	    <tr><td><a href="mkg04.jpg"><img src="mkg04-tn.jpg" 
+	    width="205" border="1" alt="[Live Webcam Image from Muskegon, MI Met Station Camera 4]"></a></td>
+	    <td><a href="mkg07.jpg"><img src="mkg07-tn.jpg" 
+	    width="205" border="1" alt="[Live Webcam Image from Muskegon, MI Met Station Camera 7]"></a></td></tr>
+	    <tr><td><a href="mkg08.jpg"><img src="mkg08-tn.jpg" 
+	    width="205" border="1" alt="[Live Webcam Image from Muskegon, MI Met Station Camera 8]"></a></td></tr>
+	 <tr>
+	 <td colspan="2" align="center" valign="top">
+
+	 6-hr animations
+	 <br>L&nbsp;to&nbsp;R:&nbsp;<a href="../anim.php?site=mkg&amp;cam=1&amp;size=full" title="MKG 1 animations">1</a>&nbsp;
+	 <a href="../anim.php?site=mkg&amp;cam=2&amp;size=full" title="MKG 2 animations">2</a>&nbsp;
+	 <a href="../anim.php?site=mkg&amp;cam=3&amp;size=full" title="MKG 3 animations">3</a>&nbsp;
+	 <a href="../anim.php?site=mkg&amp;cam=4&amp;size=full" title="MKG 4 animations">4</a>&nbsp;
+	 <a href="../anim.php?site=mkg&amp;cam=5&amp;size=full" title="MKG 5 animations">5</a>&nbsp;
+	 <a href="../anim.php?site=mkg&amp;cam=6&amp;size=full" title="MKG 6 animations">6</a>&nbsp;
+	 <a href="../anim.php?site=mkg&amp;cam=7&amp;size=full" title="MKG 7 animations">7</a>
+
+         <br><br>Previous 24 images (top of hour only)
+	 <br>L&nbsp;to&nbsp;R:&nbsp;<a href="animate_webcams/cam1/frame00.html" title="MKG 1 frames">1</a>&nbsp;
+	 <a href="animate_webcams/cam2/frame00.html" title="MKG 2 frames">2</a>&nbsp;
+	 <a href="animate_webcams/cam5/frame00.html" title="MKG 3 frames">3</a>&nbsp;
+	 <a href="animate_webcams/cam4/frame00.html" title="MKG 4 frames">4</a>&nbsp;
+	 <a href="animate_webcams/cam5/frame00.html" title="MKG 5 frames">5</a>&nbsp;
+	 <a href="animate_webcams/cam7/frame00.html" title="MKG 6 frames">6</a>&nbsp;
+	 <a href="animate_webcams/cam8/frame00.html" title="MKG 7 frames">7</a>
+
+         <br><br><a href="images/">All Images (past 14 days)</a>
+
+	 <br><br>Nearby&nbsp;Webcams (external&nbsp;sites):
+	 <br><a href="http://www.muskegonsurfcam.com/">Pere Marquette Beach Surf Cam</a>
+	 <br><a href="http://www.earthcam.com/usa/michigan/grandhaven/lakemichigan/">Grand Haven Beach Webcam</a>
+	 <br><a href="http://www.ghsteelheaders.com/WeatherWebcam/tabid/58/Default.aspx">Grand Haven Pier Webcam</a>
+	 <br><a href="http://spyglasshill.com/Webcam/Default.htm">Holland MI</a>
+	 </td>
+
+	 </tr>
+	 </table>
+         <br>
+</span>
+<SCRIPT LANGUAGE="JavaScript1.2" type="text/javascript" SRC="/metdata/js/hideaddr.js"></SCRIPT>
+
+<noscript>
+<strong>
+NOTE: Your browser appears to have JavaScript disabled.<br>
+You must enable Javascript in order to view email addresses.<br>
+</strong>
+</noscript>
+   <script language="JavaScript" type="text/javascript">
+   <!--
+   hideaddr2("Comments?","gregory.lang","noaa.gov","?subject=Muskegon, MI Met Station");//--></script>
+ </div>
+</td>
+</tr>
+<tr><td bgcolor="#EBF6FF" valign="top" width="425">
+<!-- Begin 18-hr table -->
+<div class="centeredContent"><table class="narrower4" width="100%" border="1" cellpadding="0" cellspacing="0" summary="">
+<tr class="red"><td colspan="12" align="center">-----------------&nbsp;Previous&nbsp;18&nbsp;Hours&nbsp;(at&nbsp;top&nbsp;of&nbsp;hour)&nbsp;&nbsp;[English]&nbsp;[<a href="met1m.html">Metric</a>]&nbsp;-----------------</td></tr>
+<tr class="red"><td valign="bottom" align="right">YEAR</td><td valign="bottom" align="right">DOY</td>
+<td valign="bottom" align="right">EST</td>
+<td valign="bottom" align="right">Wind<br>Speed<br>kts</td>
+<td valign="bottom" align="right">Wind<br>Gust<br>kts</td>
+<td valign="bottom" align="right">Peak<br>Wind<br>kts</td>
+<td valign="bottom" align="right">Wind<br>Dir<br>deg</td>
+<td valign="bottom" align="right">Air<br>Temp<br>deg&nbsp;F</td>
+<td valign="bottom" align="right">Dew<br>Point<br>deg&nbsp;F</td>
+<td valign="bottom" align="right">Rel<br>Hum<br>%</td>
+<td valign="bottom" align="right">Sta<br>Press<br>in</td>
+<td valign="bottom" align="right">PAR<br>uEinst/<br>m^2/s</td></tr>
+<tr><td align="right"> 2017</td><td align="right">043</td><td align="right">2000</td><td align="right">   27.8</td><td align="right">  31.3</td><td align="right">  31.3</td><td align="right">  318</td><td align="right">  35.1</td><td align="right">  23.7</td><td align="right">  63.0</td><td align="right"> 29.53</td><td align="right">   2</td></tr> 
+<tr><td align="right"> 2017</td><td align="right">043</td><td align="right">1900</td><td align="right">   31.7</td><td align="right">  36.5</td><td align="right">  38.7</td><td align="right">  328</td><td align="right">  35.1</td><td align="right">  23.0</td><td align="right">  61.0</td><td align="right"> 29.50</td><td align="right">   2</td></tr> 
+<tr><td align="right"> 2017</td><td align="right">043</td><td align="right">1800</td><td align="right">   30.5</td><td align="right">  37.3</td><td align="right">  37.3</td><td align="right">  328</td><td align="right">  35.1</td><td align="right">  24.1</td><td align="right">  64.0</td><td align="right"> 29.47</td><td align="right"> 198</td></tr> 
+<tr><td align="right"> 2017</td><td align="right">043</td><td align="right">1700</td><td align="right">   29.2</td><td align="right">  34.8</td><td align="right">  39.3</td><td align="right">  327</td><td align="right">  36.1</td><td align="right">  24.1</td><td align="right">  61.3</td><td align="right"> 29.42</td><td align="right">1172</td></tr> 
+<tr><td align="right"> 2017</td><td align="right">043</td><td align="right">1600</td><td align="right">   32.7</td><td align="right">  35.6</td><td align="right">  40.6</td><td align="right">  322</td><td align="right">  36.9</td><td align="right">  24.8</td><td align="right">  61.3</td><td align="right"> 29.37</td><td align="right"> 857</td></tr> 
+<tr><td align="right"> 2017</td><td align="right">043</td><td align="right">1500</td><td align="right">   29.4</td><td align="right">  33.2</td><td align="right">  43.2</td><td align="right">  319</td><td align="right">  37.6</td><td align="right">  25.8</td><td align="right">  62.2</td><td align="right"> 29.33</td><td align="right">1804</td></tr> 
+<tr><td align="right"> 2017</td><td align="right">043</td><td align="right">1400</td><td align="right">   25.3</td><td align="right">  29.0</td><td align="right">  40.8</td><td align="right">  317</td><td align="right">  38.1</td><td align="right">  29.0</td><td align="right">  69.4</td><td align="right"> 29.30</td><td align="right">1893</td></tr> 
+<tr><td align="right"> 2017</td><td align="right">043</td><td align="right">1300</td><td align="right">   20.4</td><td align="right">  24.5</td><td align="right">  34.0</td><td align="right">  300</td><td align="right">  37.6</td><td align="right">  32.6</td><td align="right">  82.1</td><td align="right"> 29.28</td><td align="right">1928</td></tr> 
+<tr><td align="right"> 2017</td><td align="right">043</td><td align="right">1200</td><td align="right">   16.3</td><td align="right">  17.5</td><td align="right">  25.1</td><td align="right">  294</td><td align="right">  36.3</td><td align="right">  34.0</td><td align="right">  91.2</td><td align="right"> 29.29</td><td align="right"> 199</td></tr> 
+<tr><td align="right"> 2017</td><td align="right">043</td><td align="right">1100</td><td align="right">   21.4</td><td align="right">  24.5</td><td align="right">  27.6</td><td align="right">  276</td><td align="right">  35.8</td><td align="right">  33.7</td><td align="right">  92.1</td><td align="right"> 29.29</td><td align="right"> 432</td></tr> 
+<tr><td align="right"> 2017</td><td align="right">043</td><td align="right">1000</td><td align="right">   11.5</td><td align="right">  12.1</td><td align="right">  24.5</td><td align="right">  258</td><td align="right">  34.2</td><td align="right">  32.9</td><td align="right">  95.0</td><td align="right"> 29.29</td><td align="right"> 165</td></tr> 
+<tr><td align="right"> 2017</td><td align="right">043</td><td align="right">0900</td><td align="right">   10.1</td><td align="right">  10.5</td><td align="right">  12.6</td><td align="right">  287</td><td align="right">  34.5</td><td align="right">  32.9</td><td align="right">  93.6</td><td align="right"> 29.31</td><td align="right"> 110</td></tr> 
+<tr><td align="right"> 2017</td><td align="right">043</td><td align="right">0800</td><td align="right">    9.5</td><td align="right">  10.7</td><td align="right">  12.8</td><td align="right">  312</td><td align="right">  34.0</td><td align="right">  33.0</td><td align="right">  96.3</td><td align="right"> 29.30</td><td align="right">  16</td></tr> 
+<tr><td align="right"> 2017</td><td align="right">043</td><td align="right">0700</td><td align="right">    8.2</td><td align="right">   8.6</td><td align="right">  11.5</td><td align="right">  312</td><td align="right">  33.1</td><td align="right">  32.0</td><td align="right">  95.9</td><td align="right"> 29.29</td><td align="right">   2</td></tr> 
+<tr><td align="right"> 2017</td><td align="right">043</td><td align="right">0600</td><td align="right">    1.7</td><td align="right">   2.1</td><td align="right">   9.3</td><td align="right">  089</td><td align="right">  33.4</td><td align="right">  32.2</td><td align="right">  95.0</td><td align="right"> 29.27</td><td align="right">   2</td></tr> 
+<tr><td align="right"> 2017</td><td align="right">043</td><td align="right">0500</td><td align="right">    9.1</td><td align="right">   9.7</td><td align="right">  11.7</td><td align="right">  352</td><td align="right">  33.4</td><td align="right">  31.8</td><td align="right">  93.6</td><td align="right"> 29.29</td><td align="right">   2</td></tr> 
+<tr><td align="right"> 2017</td><td align="right">043</td><td align="right">0400</td><td align="right">    2.3</td><td align="right">   3.1</td><td align="right">   9.5</td><td align="right">  345</td><td align="right">  34.0</td><td align="right">  31.5</td><td align="right">  90.4</td><td align="right"> 29.29</td><td align="right">   2</td></tr> 
+<tr><td align="right"> 2017</td><td align="right">043</td><td align="right">0300</td><td align="right">    2.9</td><td align="right">   4.1</td><td align="right">   6.4</td><td align="right">  086</td><td align="right">  35.6</td><td align="right">  31.3</td><td align="right">  84.1</td><td align="right"> 29.30</td><td align="right">   2</td></tr> 
+</table>
+<span class="small">Note: Peak wind is max wind gust during entire hour</span>
+</div>
+<!-- End 18-hr table -->
+</td>
+</tr>
+
+<tr><td colspan="3" bgcolor="#ffffff" valign="top">
+<br>&nbsp; &nbsp; &nbsp; <img src='/images/arrow1.gif' alt='right arrow'> Click here for today's 2-minute 
+data: <a href="2017/20170213.05t.txt">20170213.05t.txt</a>, <a href="metadata.html">data format (metadata)</a><br>
+&nbsp; &nbsp; &nbsp; <img src="/images/arrow1.gif" alt="right arrow"> Click here for past data:
+   <a href="2017.html">2017</a>&nbsp;|&nbsp;<a href="archive/">Archive</a>
+
+<br><br>Access current marine observations on your mobile device.
+See <a href=http://www.ndbc.noaa.gov/mobile/><span class=red>NDBC's mobile access page</span></a>.
+<br>These data are also available from <a href=http://www.ndbc.noaa.gov/station_page.php?station=MKGM4>NDBC website</a> and <a href=http://www.ndbc.noaa.gov/dial.shtml>NDBC's Dial-a-Buoy Program</a>. 
+<br><span class=red>See also <a href=http://www.nws.noaa.gov/om/marine/zone/gtlakes/grrmz.htm>NWS Marine Forecast for this area</a>, and <a href=http://www.crh.noaa.gov/grr/marine/surf/>NWS Recreational Beach Forecast</a></span>
+<br><br><span class="small"><a href="/home/notice.html#realtime">Realtime Data Disclaimer</a></span>
+<br>
+<hr noshade width="80%">
+   <p align="center"><strong>Additional Great Lakes Meteorological Observations</strong></p>
+
+   &raquo; <a href="http://www.crh.noaa.gov/grr/marine/index.php">NWS, Grand Rapids Office: 
+   Near-Realtime Marine Weather, includes current conditions and forecasts</a>
+
+   <br>&raquo; <a href="http://www.crh.noaa.gov/dtx/">NWS, White Lake Office: Near-Realtime 
+   Marine Weather, includes current conditions and forecasts</a>
+
+   <br>&raquo; <a href="http://www.ndbc.noaa.gov/?lat=44.0&amp;lon=-83.5&amp;zoom=5&amp;type=h&amp;status=r&amp;pgm=&amp;op=&amp;ls=false">NDBC Great Lakes
+   ImageMap showing U.S. and Canadian Buoys and C-MAN Stations</a>
+
+   <br>&raquo; <a href="http://coastwatch.glerl.noaa.gov/marobs"><span class="red">NOAA 
+   CoastWatch Great Lakes NOAAPORT Data, includes all station types</span></a>
+
+   <br>&raquo; <a href="http://nowcoast.noaa.gov/">NOAA's NowCoast: Web mapping portal to 
+   real-time coastal observations</a>
+
+   <br>&raquo; <a href="http://www.iwindsurf.com/">Winds courtesy of iWindsurf.com</a>
+
+   <br>&raquo; <a href="http://www.nws.noaa.gov/om/marine/gtlakes.htm">NWS
+   Great Lakes Marine Text <strong>Forecasts</strong> by Zone</a>
+
+   <br>&raquo; <a href="../docs/wtemp.html">Links to Great Lakes Water Temperature, Wind/Wave Data, &amp; Water Levels</a>
+
+   <br>&raquo; <a href="http://www.great-lakes.net/infocenter/images/webcams.html">Additional Great Lakes WebCams from GLIN</a>
+
+   <!--<br><br>&nbsp;<a href="wwwstats/">WWW Stats</a>-->
+   <br>&raquo; <a href="http://www.great-lakes.net/">GLIN: Great Lakes Information Network</a><br>
+<br>
+<script language="JavaScript" type="text/javascript">
+<!--
+hideaddr2("Comments?","gregory.lang","noaa.gov","?subject=Muskegon, MI Met Station");//--></script>
+
+</td></tr></table>
+
+<!-- below text is from: www.glerl.noaa.gov/regularPageTemplate.html-->
+                <!-- END MAIN CONTENT -->
+            </div>
+        </div><!-- /content -->
+
+        <!-- BEGIN FOOTER -->
+
+        <div class="primaryWrapper" id="mainFooter" role='contentinfo'>
+            <div class="clearfix" id="mainFooterInner">
+				<div class="centeredContent" id="mainFooterNav">
+					<a class="linkInADarkSpot" href="/">Home</a> | 
+					<a class="linkInADarkSpot" href="/home/contactus.html">Contact</a> |
+					<a class="linkInADarkSpot" href="/home/accessibility.html">Accessibility</a> | 
+					<a class="linkInADarkSpot" href="/home/sitemap.html">Site Map</a> | 
+					<a class="linkInADarkSpot" href="/home/privacy.html">Privacy Policy</a> | 
+					<a class="linkInADarkSpot" href="/home/feedback.html">Feedback</a> | 
+					<a class="linkInADarkSpot" href="/home/notice.html">Disclaimer</a> |
+					<a class="linkInADarkSpot" href="http://intranet">GLERL Only</a><br />
+					<!--<a class="footerContacts" href="/"><strong>NOAA-GLERL</strong></a> - 
+					4840 S. State Rd., Ann Arbor, MI 48108-9719, (734) 741-2235,
+					<script type="text/javascript"> <!--
+						var name = "www.glerl";
+						var domain = "noaa.gov"; 
+						document.write('<a class="linkInADarkSpot" href=\"mailto:' + name + '@' + domain + '\">');
+						document.write(name + '@' + domain + '<\/a>');
+						//-->
+					<!--</script><br />
+					<a class="footerContacts" href="/lmfs/"><strong>Lake Michigan Field Station (LMFS)</strong></a> - 
+					1431 Beach St., Muskegon, MI 49441-1098, (231) 755-3831<br />-->
+					<a class="linkInADarkSpot" id="oarLink" href="http://research.noaa.gov/" target="_blank">
+						Office of Oceanic and Atmospheric Research (OAR)
+					</a>
+				</div><br />
+				
+				<a class="logoLink" id="docLogo" href="http://www.commerce.gov/" target="_blank">
+					<img alt="Link to Department of Commerce Page" width="50" height="50" src="/images/docBannerLogo.png" />
+				</a> 
+					
+				<a class="logoLink" id="noaaLogoFoot" href="http://www.noaa.gov/" target="_blank">
+					<img alt="Link to NOAA Page" width="50" height="50" src="/images/noaa_white_rim_web.png" />                            
+				</a>   
+				
+            </div>                
+        </div>
+						        <!-- END FOOTER -->
+        
+        <!-- END INTERFACE CONTENT -->
+        
+        <!-- BEGIN FOOTER ANALYTICS BLOCK -->
+        
+        <!-- Piwik -->
+        <script type="text/javascript">
+        var _paq = _paq || [];
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="//www.glerl.noaa.gov/analytics/";
+            _paq.push(['setTrackerUrl', u+'piwik.php']);
+            _paq.push(['setSiteId', 1]);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+        })();
+        </script>
+        <noscript><p><img src="//www.glerl.noaa.gov/analytics/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
+        <!-- End Piwik Code -->
+        
+        <!-- END FOOTER ANALYTICS BLOCK -->
+    </body>
+</html>
