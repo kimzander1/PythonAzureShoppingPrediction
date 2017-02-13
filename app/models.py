@@ -1,14 +1,16 @@
-"""
+﻿"""
 Definition of models.
 """
 
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
+from recommendationservice import RecommendationService
 
 # Create your models here.
 
 from django.core.exceptions import ValidationError
+import config
 def validate_true(value):
     if value is not True:
         raise ValidationError("This value is required to be true.")
@@ -41,5 +43,13 @@ class Product(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=512)
-    price = models.FloatField()
+    price = models.DecimalField(max_digits=6, decimal_places=2)
     image_link = models.CharField(max_length=100)
+
+    @property
+    def recommended_items(self):
+        # Use data marketplace service to get recommendations
+        rs = RecommendationService(config.azure_datamarket_email, config.azure_datamarket_access_key)
+        recommendations = rs.get_recommendation(config.model_id, [ str(self.id) ])
+        recommend_products = [ Product.objects.get(id=int(r.id)) for r in recommendations ]
+        return recommend_products
