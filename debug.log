@@ -4993,3 +4993,11 @@
 [0214/235053:VERBOSE1:resource_loader.cc(434)] OnReadCompleted: "http://bimlstudio/signalr/ping?_=1486888362647" bytes_read = 22
 [0214/235053:VERBOSE1:resource_loader.cc(434)] OnReadCompleted: "http://bimlstudio/signalr/ping?_=1486888362647" bytes_read = 0
 [0214/235053:VERBOSE1:resource_loader.cc(790)] ResponseCompleted: http://bimlstudio/signalr/ping?_=1486888362647
+[0214/235553:VERBOSE1:resource_loader.cc(364)] OnResponseStarted: http://bimlstudio/signalr/ping?_=1486888362648
+[0214/235553:VERBOSE1:resource_loader.cc(434)] OnReadCompleted: "http://bimlstudio/signalr/ping?_=1486888362648" bytes_read = 22
+[0214/235553:VERBOSE1:resource_loader.cc(434)] OnReadCompleted: "http://bimlstudio/signalr/ping?_=1486888362648" bytes_read = 0
+[0214/235553:VERBOSE1:resource_loader.cc(790)] ResponseCompleted: http://bimlstudio/signalr/ping?_=1486888362648
+[0215/000053:VERBOSE1:resource_loader.cc(364)] OnResponseStarted: http://bimlstudio/signalr/ping?_=1486888362649
+[0215/000053:VERBOSE1:resource_loader.cc(434)] OnReadCompleted: "http://bimlstudio/signalr/ping?_=1486888362649" bytes_read = 22
+[0215/000053:VERBOSE1:resource_loader.cc(434)] OnReadCompleted: "http://bimlstudio/signalr/ping?_=1486888362649" bytes_read = 0
+[0215/000053:VERBOSE1:resource_loader.cc(790)] ResponseCompleted: http://bimlstudio/signalr/ping?_=1486888362649
