@@ -1,4 +1,4 @@
-"""
+﻿"""
 Definition of views.
 """
 
@@ -11,9 +11,18 @@ from datetime import datetime
 from app.models import UserProfile
 from app.forms import UserProfileForm
 from app.models import Product
+import requests
+import json
+from applicationinsights import TelemetryClient
+import config
+
+tc = TelemetryClient('104f9dca-6034-42a1-a646-7c66230710e7')
 
 def home(request):
     """Renders the home page."""
+
+    tc.track_event('home page reached')
+    tc.flush()
     assert isinstance(request, HttpRequest)
 
     products = Product.objects.order_by('id')
@@ -32,31 +41,25 @@ def home(request):
 def product(request):
     assert isinstance(request, HttpRequest)
 
-    try:
-        import requests
+    id = int(request.path.split('/')[-1])
+    product = Product.objects.get(id=id)
 
-        # get id
-        id = int(request.path.split('/')[-1])
-        product = Product.objects.get(id=id)
+    """Renders the product page."""
+    return render(
+        request,
+        'app/product.html',
+        context_instance = RequestContext(request,
+        {
+            'title':product.name,
+            'description':product.description,
+            'price':product.price,
+            'image':product.image_link,
+            # add the recommended_products
+            'recommended_products':product.recommended_items,
+            'year':datetime.now().year,
+        })
+    )
 
-        # Figure out recommended purchases.
-
-        """Renders the product page."""
-        return render(
-            request,
-            'app/product.html',
-            context_instance = RequestContext(request,
-            {
-                'title':product.name,
-                'description':product.description,
-                'price':product.price,
-                'image':product.image_link,
-                'year':datetime.now().year,
-            })
-        )
-    except:
-        return home(request)
-    
 
 @login_required
 def profile(request):

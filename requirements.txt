@@ -18,4 +18,8 @@ SQLAlchemy
 South
 amqplib
 nose
+html5lib
+applicationinsights
+#https://github.com/crwilcox/RecommendationService/archive/master.zip
+#crwilcox/master
 ElementTree

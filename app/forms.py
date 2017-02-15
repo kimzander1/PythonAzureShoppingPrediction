@@ -8,6 +8,9 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit
 from crispy_forms.bootstrap import StrictButton
 from app.models import UserProfile
+from xml.etree import ElementTree
+import requests
+import config
 
 class UserProfileForm(forms.ModelForm):
     first_name = forms.CharField(max_length=30, required=False)
@@ -57,13 +60,32 @@ class UserProfileForm(forms.ModelForm):
         new_zip_code = c.findtext('{http://schemas.microsoft.com/ado/2007/08/dataservices}ZipCode')
         return new_address_combined, new_city, new_state, new_zip_code
 
-    def clean(self):
-        import requests
-        from xml.etree import ElementTree
-        
+    def clean(self):        
         cleaned_data = super(UserProfileForm, self).clean()
-        
+    
         # Validate the Address of the User
+        address = cleaned_data.get('address', '')
+        city = cleaned_data.get('city', '')
+        state = cleaned_data.get('state', '')
+        zip_code = cleaned_data.get('zip_code', '')
+
+        # Verify the address using the data marketplace service
+        full_address = "'{}, {}, {} {}'".format(address, city, state, zip_code)
+        uri = "https://api.datamarket.azure.com/MelissaData/AddressCheck/v1/SuggestAddresses"
+        data = {'Address':full_address, 'MaximumSuggestions':1, 'MinimumConfidence':0.25}
+        req = requests.get(uri, params=data, auth=('', config.azure_datamarket_access_key))
+
+        # Parse the returned text
+        new_address_combined, new_city, new_state, new_zip_code = self.parse_ugly_xml(req.text)
+
+        # Compare entered address with validated address
+        if new_address_combined != address or new_city != city or new_state != state or new_zip_code != zip_code:
+            cleaned_data['address'] = new_address_combined
+            cleaned_data['city'] = new_city
+            cleaned_data['state'] = new_state
+            cleaned_data['zip_code'] = new_zip_code
+            raise forms.ValidationError(
+                "Your address was validated and updated with corrected content.  Please submit again if it is correct.")
 
         return cleaned_data
 

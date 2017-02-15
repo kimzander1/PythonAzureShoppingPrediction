@@ -1,5 +1,5 @@
 """
-WSGI config for PyCon2015AzureTutorial project.
+WSGI config for AzureFresh project.
 
 This module contains the WSGI application used by Django's development server
 and any production WSGI deployments. It should expose a module-level variable
@@ -15,7 +15,7 @@ framework.
 """
 import os
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "PyCon2015AzureTutorial.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "AzureFresh.settings")
 
 # This application object is used by any WSGI server configured to use this
 # file. This includes Django's development server, if the WSGI_APPLICATION
@@ -24,5 +24,9 @@ from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()
 
 # Apply WSGI middleware here.
-# from helloworld.wsgi import HelloWorldApplication
-# application = HelloWorldApplication(application)
+from applicationinsights.requests import WSGIApplication
+
+def get_application_insights_hook():
+    return WSGIApplication('104f9dca-6034-42a1-a646-7c66230710e7', application)
+
+application = get_application_insights_hook()
