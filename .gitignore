@@ -48,3 +48,8 @@ db.sqlite3
 db.sqlite
 db-NoAppTables.sqlite3
 debug.log
+
+db_old.sqlite3
+
+JupyterDjangoShell_last_edited_here.ipynb
+JupyterDjangoShell_Copy.ipynb
