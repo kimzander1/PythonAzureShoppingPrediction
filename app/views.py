@@ -14,7 +14,7 @@ from app.models import Product
 import requests
 import json
 from applicationinsights import TelemetryClient
-import config
+#import config
 
 tc = TelemetryClient('104f9dca-6034-42a1-a646-7c66230710e7')
 
