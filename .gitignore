@@ -45,6 +45,7 @@ src/build
 *.iml
 web.debug.config
 db.sqlite3
+db.sqlite
 db-NoAppTables.sqlite3
 debug.log
 
