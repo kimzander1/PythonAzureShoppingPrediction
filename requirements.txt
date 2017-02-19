@@ -22,4 +22,4 @@ html5lib
 #applicationinsights
 https://github.com/crwilcox/RecommendationService/archive/master.zip
 #crwilcox/master
-ElementTree
+#ElementTree
