@@ -1,0 +1,1033 @@
+ 2/1:
+my_name = "Kimmer"           
+hello_statement = "Hello, " + my_name
+print(hello_statement, end='\n\n' )
+print("----")
+x = 10
+ 2/2:
+my_name = "Kimmer"           
+hello_statement = "Hello, " + my_name
+print(hello_statement, end='\n\n' )
+print("----")
+x = 3
+ 2/3:
+for j in range(1, 5):
+    x = x + j
+    print("j = {0}    x = {1}".format(j, x))
+ 2/4: from django import forms
+ 6/1:
+import pandas as pd
+#import lxml as lx
+ 6/2:
+import html5lib
+f = open("files/WXDATA.html")
+tree = html5lib.parse(f)
+ 6/3:
+import html5lib
+f = open("_FILES/WXDATA.HTML")
+tree = html5lib.parse(f)
+ 6/4:
+import html5lib
+f = open("_FILES/WXDATA.HTML")
+tree = html5lib.parse(f)
+ 6/5:
+import pandas as pd
+#import lxml as lx
+import beautifulsoup4
+ 6/6:
+import pandas as pd
+#import lxml as lx
+import beautifulsoup
+ 6/7:
+import pandas as pd
+#import lxml as lx
+from bs4 import beautifulsoup
+ 6/8:
+import pandas as pd
+#import lxml as lx
+from bs4 import BeautifulSoup
+ 6/9: from bs4 import BeautifulSoup
+6/10:
+from bs4 import BeautifulSoup
+soup = BeautifulSoup(open("_files/WXDATA.HTML"))
+6/11:
+from bs4 import BeautifulSoup
+soup = BeautifulSoup(open("_files/WXDATA.HTML"), "html5lib")
+6/12: aoup.title
+6/13: soup.title
+6/14:
+soup.title
+soup.title.text
+6/15:
+soup.title
+#soup.title.text
+6/16:
+soup.title.text
+soup.title
+6/17:
+soup.title.text
+soup.title
+6/18: soup.title.text  soup.title
+6/19:
+print(soup.title.text)  
+print(soup.title)
+6/20:
+print(soup.title.text)  
+print(soup.title)
+print(soup.find_all('a'))
+6/21:
+print(soup.title.text)  
+
+print(soup.title)
+
+print(soup.find_all('a'))
+6/22:
+print(soup.title.text)  
+print(soup.title)
+6/23: print(soup.find_all('a'))
+6/24: soup.find_all('a')
+6/25: soup.T
+6/26: soup.Table
+6/27: soup.find_all('table')
+6/28: soup.find_all('table')[0]
+ 7/1: sc
+6/29:
+import html5lib
+f = open("_FILES/WXDATA.HTML")
+tree = html5lib.parse(f)
+6/30: tree
+6/31:
+import pandas as pd
+#import lxml as lx
+6/32:
+from bs4 import BeautifulSoup
+soup = BeautifulSoup(open("_files/WXDATA.HTML"), "html5lib")
+6/33:
+print(soup.title)
+print(soup.title.text)  
+print(soup.title)
+ 8/1: import html5lib
+ 8/2: import pandas as pd
+ 8/3:
+
+f_states=   pd.read_html('https://simple.wikipedia.org/wiki/List_of_U.S._states')
+ 8/4: f_states
+ 8/5: f_states?
+ 8/6: f_states[0]?
+ 8/7: f_states[0]
+ 8/8: f_states[1]
+10/1:
+import html5lib
+f = open("_FILES/WXDATA.HTML")
+tree = html5lib.parse(f)
+10/2: tree
+10/3:
+import pandas as pd
+#import lxml as lx
+10/4:
+from bs4 import BeautifulSoup
+soup = BeautifulSoup(open("_files/WXDATA.HTML"), "html5lib")
+10/5:
+print(soup.title.text)  
+print(soup.title)
+10/6:
+t = soup.select("#mainContentInner > table > tbody > tr:nth-of-type(3) > td > div > table ")
+tstring = t[0]
+import pandas as pd
+from io import StringIO
+tstring
+url = 'https://www.glerl.noaa.gov//metdata/mkg/'
+tables = pd.read_html( url, flavor='html5lib')
+tables[21]
+#pd.read_html( io=StringIO(tstring), flavor='html5lib')
+#pd.( StringIO(tstring), html5lib)
+10/7:
+t = soup.select("#mainContentInner > table > tbody > tr:nth-of-type(3) > td > div > table ")
+tstring = t[0]
+import pandas as pd
+from io import StringIO
+tstring
+url = 'https://www.glerl.noaa.gov//metdata/mkg/'
+tables = pd.read_html( url, flavor='html5lib')
+tables[20]
+#pd.read_html( io=StringIO(tstring), flavor='html5lib')
+#pd.( StringIO(tstring), html5lib)
+10/8:
+t = soup.select("#mainContentInner > table > tbody > tr:nth-of-type(3) > td > div > table ")
+tstring = t[0]
+import pandas as pd
+from io import StringIO
+tstring
+url = 'https://www.glerl.noaa.gov//metdata/mkg/'
+tables = pd.read_html( url, flavor='html5lib')
+tables
+#pd.read_html( io=StringIO(tstring), flavor='html5lib')
+#pd.( StringIO(tstring), html5lib)
+10/9:
+t = soup.select("#mainContentInner > table > tbody > tr:nth-of-type(3) > td > div > table ")
+tstring = t[0]
+import pandas as pd
+from io import StringIO
+tstring
+url = 'https://www.glerl.noaa.gov//metdata/mkg/'
+tables = pd.read_html( url, flavor='html5lib')
+tables.count
+#pd.read_html( io=StringIO(tstring), flavor='html5lib')
+#pd.( StringIO(tstring), html5lib)
+10/10:
+t = soup.select("#mainContentInner > table > tbody > tr:nth-of-type(3) > td > div > table ")
+tstring = t[0]
+import pandas as pd
+from io import StringIO
+tstring
+url = 'https://www.glerl.noaa.gov//metdata/mkg/'
+tables = pd.read_html( url, flavor='html5lib')
+tables.count()
+#pd.read_html( io=StringIO(tstring), flavor='html5lib')
+#pd.( StringIO(tstring), html5lib)
+10/11:
+t = soup.select("#mainContentInner > table > tbody > tr:nth-of-type(3) > td > div > table ")
+tstring = t[0]
+import pandas as pd
+from io import StringIO
+tstring
+url = 'https://www.glerl.noaa.gov//metdata/mkg/'
+tables = pd.read_html( url, flavor='html5lib')
+len(tables)
+#pd.read_html( io=StringIO(tstring), flavor='html5lib')
+#pd.( StringIO(tstring), html5lib)
+10/12:
+t = soup.select("#mainContentInner > table > tbody > tr:nth-of-type(3) > td > div > table ")
+tstring = t[0]
+import pandas as pd
+from io import StringIO
+tstring
+url = 'https://www.glerl.noaa.gov//metdata/mkg/'
+tables = pd.read_html( url, flavor='html5lib')
+print( 'Table Count' len(tables)
+#pd.read_html( io=StringIO(tstring), flavor='html5lib')
+#pd.( StringIO(tstring), html5lib)
+10/13:
+t = soup.select("#mainContentInner > table > tbody > tr:nth-of-type(3) > td > div > table ")
+tstring = t[0]
+import pandas as pd
+from io import StringIO
+tstring
+url = 'https://www.glerl.noaa.gov//metdata/mkg/'
+tables = pd.read_html( url, flavor='html5lib')
+print( 'Table Count'  + len(tables)
+#pd.read_html( io=StringIO(tstring), flavor='html5lib')
+#pd.( StringIO(tstring), html5lib)
+10/14:
+t = soup.select("#mainContentInner > table > tbody > tr:nth-of-type(3) > td > div > table ")
+tstring = t[0]
+import pandas as pd
+from io import StringIO
+tstring
+url = 'https://www.glerl.noaa.gov//metdata/mkg/'
+tables = pd.read_html( url, flavor='html5lib')
+print( 'Table Count'  + len(tables) )
+#pd.read_html( io=StringIO(tstring), flavor='html5lib')
+#pd.( StringIO(tstring), html5lib)
+10/15:
+t = soup.select("#mainContentInner > table > tbody > tr:nth-of-type(3) > td > div > table ")
+tstring = t[0]
+import pandas as pd
+from io import StringIO
+tstring
+url = 'https://www.glerl.noaa.gov//metdata/mkg/'
+tables = pd.read_html( url, flavor='html5lib')
+print( 'Table Count'  len(tables) )
+#pd.read_html( io=StringIO(tstring), flavor='html5lib')
+#pd.( StringIO(tstring), html5lib)
+10/16:
+t = soup.select("#mainContentInner > table > tbody > tr:nth-of-type(3) > td > div > table ")
+tstring = t[0]
+import pandas as pd
+from io import StringIO
+tstring
+url = 'https://www.glerl.noaa.gov//metdata/mkg/'
+tables = pd.read_html( url, flavor='html5lib')
+print( 'Table Count: {0}'.format(len(tables) )
+#pd.read_html( io=StringIO(tstring), flavor='html5lib')
+#pd.( StringIO(tstring), html5lib)
+10/17:
+t = soup.select("#mainContentInner > table > tbody > tr:nth-of-type(3) > td > div > table ")
+tstring = t[0]
+import pandas as pd
+from io import StringIO
+tstring
+url = 'https://www.glerl.noaa.gov//metdata/mkg/'
+tables = pd.read_html( url, flavor='html5lib')
+print( 'Table Count: {0}'.format(len(tables) )
+#pd.read_html( io=StringIO(tstring), flavor='html5lib')
+#pd.( StringIO(tstring), html5lib)
+10/18:
+t = soup.select("#mainContentInner > table > tbody > tr:nth-of-type(3) > td > div > table ")
+tstring = t[0]
+import pandas as pd
+from io import StringIO
+tstring
+url = 'https://www.glerl.noaa.gov//metdata/mkg/'
+tables = pd.read_html( url, flavor='html5lib')
+print( 'Table Count: {0}'.format(len(tables) )
+#pd.read_html( io=StringIO(tstring), flavor='html5lib')
+#pd.( StringIO(tstring), html5lib)
+10/19:
+t = soup.select("#mainContentInner > table > tbody > tr:nth-of-type(3) > td > div > table ")
+tstring = t[0]
+import pandas as pd
+from io import StringIO
+tstring
+url = 'https://www.glerl.noaa.gov//metdata/mkg/'
+tables = pd.read_html( url, flavor='html5lib')
+print( 'Table Count: {0}'.format(len(tables) ) )
+#pd.read_html( io=StringIO(tstring), flavor='html5lib')
+#pd.( StringIO(tstring), html5lib)
+10/20: tables[3]
+10/21: tables[3][1]
+10/22: tables[3][1][1]
+10/23: tables[3][1][1]
+10/24: tables[3]
+10/25: tables
+10/26:
+t = soup.select("#mainContentInner > table > tbody > tr:nth-of-type(3) > td > div > table ")
+tstring = t[0]
+import pandas as pd
+from io import StringIO
+tstring
+url = 'https://www.glerl.noaa.gov//metdata/mkg/'
+tables = pd.read_html( url, flavor='html5lib')
+print( 'Table Count: {0}'.format(len(tables) ) )
+type(tables)
+#pd.read_html( io=StringIO(tstring), flavor='html5lib')
+#pd.( StringIO(tstring), html5lib)
+10/27:
+t = soup.select("#mainContentInner > table > tbody > tr:nth-of-type(3) > td > div > table ")
+tstring = t[0]
+import pandas as pd
+from io import StringIO
+tstring
+url = 'https://www.glerl.noaa.gov//metdata/mkg/'
+tables = pd.read_html( url, flavor='html5lib')
+print( 'Table Count: {0}'.format(len(tables) ) )
+print( 'tables variable type: {0}'.format(type(tables) ) )
+
+type(tables)
+#pd.read_html( io=StringIO(tstring), flavor='html5lib')
+#pd.( StringIO(tstring), html5lib)
+10/28:
+t = soup.select("#mainContentInner > table > tbody > tr:nth-of-type(3) > td > div > table ")
+tstring = t[0]
+import pandas as pd
+from io import StringIO
+tstring
+url = 'https://www.glerl.noaa.gov//metdata/mkg/'
+tables = pd.read_html( url, flavor='html5lib')
+print( 'tables var type: {0}'.format(type(tables) ) )
+print( 'tables var len: {0}'.format(len(tables) ) )
+
+type(tables)
+#pd.read_html( io=StringIO(tstring), flavor='html5lib')
+#pd.( StringIO(tstring), html5lib)
+10/29:
+t = soup.select("#mainContentInner > table > tbody > tr:nth-of-type(3) > td > div > table ")
+tstring = t[0]
+import pandas as pd
+from io import StringIO
+tstring
+url = 'https://www.glerl.noaa.gov//metdata/mkg/'
+tables = pd.read_html( url, flavor='html5lib')
+print( 'tables var type: {0}'.format(tables ) )
+print( 'tables var len: {0}'.format(len(tables) ) )
+
+type(tables)
+#pd.read_html( io=StringIO(tstring), flavor='html5lib')
+#pd.( StringIO(tstring), html5lib)
+10/30:
+t = soup.select("#mainContentInner > table > tbody > tr:nth-of-type(3) > td > div > table ")
+tstring = t[0]
+import pandas as pd
+from io import StringIO
+tstring
+url = 'https://www.glerl.noaa.gov//metdata/mkg/'
+tables = pd.read_html( url, flavor='html5lib')
+print( 'tables var type: {0}'.format(type(tables) ) )
+print( 'tables var len: {0}'.format(len(tables) ) )
+
+type(tables)
+#pd.read_html( io=StringIO(tstring), flavor='html5lib')
+#pd.( StringIO(tstring), html5lib)
+10/31:
+t = soup.select("#mainContentInner > table > tbody > tr:nth-of-type(3) > td > div > table ")
+tstring = t[0]
+import pandas as pd
+from io import StringIO
+tstring
+url = 'https://www.glerl.noaa.gov//metdata/mkg/'
+tables = pd.read_html( url, flavor='html5lib')
+print( 'tables var type: {0}'.format(type(tables) ) )
+print( 'tables var len: {0}'.format(len(tables) ) )
+#type(tables)
+#pd.read_html( io=StringIO(tstring), flavor='html5lib')
+#pd.( StringIO(tstring), html5lib)
+10/32: tables[3]
+10/33:
+print( 'tables var type: {0}'.format(type(tables[3]) ) )
+tables[3]
+10/34:
+print( 'tables var type: {0}'.format(type(tables[3]) ) )
+tables[3].to_html
+tables[3]
+10/35:
+print( 'tables var type: {0}'.format(type(tables[3]) ) )
+tables[3].to_html
+#tables[3]
+12/1:
+t = soup.select("#mainContentInner > table > tbody > tr:nth-of-type(3) > td > div > table ")
+tstring = t[0]
+import pandas as pd
+from io import StringIO
+from lxml import html
+
+url = 'https://www.glerl.noaa.gov//metdata/mkg/'
+xpath = "[@id='mainContentInner']/table/tbody/tr[3]/td/div/table"
+
+tree2 = html.parse(url)
+table2 = tree2.xpath(xpath)[0]
+raw_html = html.tostring(table2)
+
+tables = pd.read_html( url, flavor='html5lib')
+dta = pd.read_html(raw_html, header=0)[0]
+print('tables var type: {0}'.format(type(tables) ) )
+print('tables var len: {0}'.format(len(tables) ) )
+12/2:
+#t = soup.select("#mainContentInner > table > tbody > tr:nth-of-type(3) > td > div > table ")
+tstring = t[0]
+import pandas as pd
+from io import StringIO
+from lxml import html
+
+url = 'https://www.glerl.noaa.gov//metdata/mkg/'
+xpath = "[@id='mainContentInner']/table/tbody/tr[3]/td/div/table"
+
+tree2 = html.parse(url)
+table2 = tree2.xpath(xpath)[0]
+raw_html = html.tostring(table2)
+
+tables = pd.read_html( url, flavor='html5lib')
+dta = pd.read_html(raw_html, header=0)[0]
+print('tables var type: {0}'.format(type(tables) ) )
+print('tables var len: {0}'.format(len(tables) ) )
+12/3:
+#t = soup.select("#mainContentInner > table > tbody > tr:nth-of-type(3) > td > div > table ")
+#tstring = t[0]
+import pandas as pd
+from io import StringIO
+from lxml import html
+
+url = 'https://www.glerl.noaa.gov//metdata/mkg/'
+xpath = "[@id='mainContentInner']/table/tbody/tr[3]/td/div/table"
+
+tree2 = html.parse(url)
+table2 = tree2.xpath(xpath)[0]
+raw_html = html.tostring(table2)
+
+tables = pd.read_html( url, flavor='html5lib')
+dta = pd.read_html(raw_html, header=0)[0]
+print('tables var type: {0}'.format(type(tables) ) )
+print('tables var len: {0}'.format(len(tables) ) )
+12/4:
+print( 'tables var type: {0}'.format(type(tables[3]) ) )
+#tables[3].to_html
+#tables[3]
+12/5:
+#t = soup.select("#mainContentInner > table > tbody > tr:nth-of-type(3) > td > div > table ")
+#tstring = t[0]
+import pandas as pd
+from io import StringIO
+from lxml import html
+
+url = 'https://www.glerl.noaa.gov/metdata/mkg/'
+xpath = "[@id='mainContentInner']/table/tbody/tr[3]/td/div/table"
+
+tree2 = html.parse(url)
+table2 = tree2.xpath(xpath)[0]
+raw_html = html.tostring(table2)
+
+tables = pd.read_html( url, flavor='html5lib')
+dta = pd.read_html(raw_html, header=0)[0]
+print('tables var type: {0}'.format(type(tables) ) )
+print('tables var len: {0}'.format(len(tables) ) )
+15/1:
+t = soup.select("#mainContentInner > table > tbody > tr:nth-of-type(3) > td > div > table ")
+tstring = t[0]
+import pandas as pd
+from io import StringIO
+tstring
+url = 'https://www.glerl.noaa.gov//metdata/mkg/'
+tables = pd.read_html( url, flavor='html5lib')
+tables[21]
+#pd.read_html( io=StringIO(tstring), flavor='html5lib')
+#pd.( StringIO(tstring), html5lib)
+15/2:
+#t = soup.select("#mainContentInner > table > tbody > tr:nth-of-type(3) > td > div > table ")
+tstring = t[0]
+import pandas as pd
+from io import StringIO
+tstring
+url = 'https://www.glerl.noaa.gov//metdata/mkg/'
+tables = pd.read_html( url, flavor='html5lib')
+tables[21]
+#pd.read_html( io=StringIO(tstring), flavor='html5lib')
+#pd.( StringIO(tstring), html5lib)
+15/3:
+#t = soup.select("#mainContentInner > table > tbody > tr:nth-of-type(3) > td > div > table ")
+#tstring = t[0]
+import pandas as pd
+from io import StringIO
+tstring
+url = 'https://www.glerl.noaa.gov//metdata/mkg/'
+tables = pd.read_html( url, flavor='html5lib')
+tables[21]
+#pd.read_html( io=StringIO(tstring), flavor='html5lib')
+#pd.( StringIO(tstring), html5lib)
+15/4:
+#t = soup.select("#mainContentInner > table > tbody > tr:nth-of-type(3) > td > div > table ")
+#tstring = t[0]
+import pandas as pd
+from io import StringIO
+#tstring
+url = 'https://www.glerl.noaa.gov//metdata/mkg/'
+tables = pd.read_html( url, flavor='html5lib')
+tables[21]
+#pd.read_html( io=StringIO(tstring), flavor='html5lib')
+#pd.( StringIO(tstring), html5lib)
+15/5:
+#t = soup.select("#mainContentInner > table > tbody > tr:nth-of-type(3) > td > div > table ")
+#tstring = t[0]
+import pandas as pd
+from io import StringIO
+#tstring
+url = 'https://www.glerl.noaa.gov//metdata/mkg/'
+tables = pd.read_html( url, flavor='html5lib')
+
+print(type(tables))
+print(len(tables))
+print(tables[0])
+#tables[21]
+#pd.read_html( io=StringIO(tstring), flavor='html5lib')
+#pd.( StringIO(tstring), html5lib)
+16/1:
+import pandas as pd
+import lxml as lx
+16/2:
+import html5lib
+f = open("_FILES/WXDATA.HTML")
+tree = html5lib.parse(f)
+16/3:
+import html5lib
+f = open("_FILES/WXDATA.HTML")
+tree = html5lib.parse(f)
+tree
+
+import pandas as pd
+#import lxml as lx
+
+from bs4 import BeautifulSoup
+soup = BeautifulSoup(open("_files/WXDATA.HTML"), "html5lib")
+16/4:
+import html5lib
+f = open("_FILES/WXDATA.HTML")
+tree = html5lib.parse(f)
+
+
+import pandas as pd
+#import lxml as lx
+
+from bs4 import BeautifulSoup
+soup = BeautifulSoup(open("_files/WXDATA.HTML"), "html5lib")
+tree
+16/5:
+import html5lib
+f = open("_FILES/WXDATA.HTML")
+tree = html5lib.parse(f)
+
+
+import pandas as pd
+#import lxml as lx
+
+from bs4 import BeautifulSoup
+soup = BeautifulSoup(open("_files/WXDATA.HTML"), "html5lib")
+tree
+16/6:
+import html5lib
+f = open("_FILES/WXDATA.HTML")
+tree = html5lib.parse(f)
+
+import pandas as pd
+import lxml as lx
+
+from bs4 import BeautifulSoup
+soup = BeautifulSoup(open("_files/WXDATA.HTML"), "html5lib")
+tree
+16/7:
+#### Get Tables
+soup.find_all('table')
+16/8:
+#### Get Tables
+found_tables = soup.find_all('table')
+16/9:
+#### Get Tables
+found_tables = soup.find_all('table')
+len(found_tables)
+16/10:
+#### Get Tables
+foundTables = soup.find_all('table')
+len(foundTables)
+16/11:
+#### Get Tables
+foundTables = soup.find_all('table')
+len(foundTables)
+foundTables[0]
+16/12:
+#### Get Tables
+foundTables = soup.find_all('table')
+len(foundTables)
+foundTables[3]
+16/13:
+#### Get Tables
+foundTables = soup.find_all('table')
+len(foundTables)
+dataTable = foundTables[3]
+type(dataTable)
+16/14:
+#### Get Tables
+foundTables = soup.find_all('table')
+len(foundTables)
+dataTable = foundTables[3]
+type(dataTable)
+16/15:
+print(soup.title.text)  
+print(soup.title)
+df = pd.DataFrame(columns=range(0,2), index = [0])
+#### Get Tables
+srcTable = soup.find_all('table')[3]
+len(srcTable)
+#dataTable = srcTable[3]
+#type(dataTable)
+16/16:
+#print(soup.title.text)  
+#print(soup.title)
+df = pd.DataFrame(columns=range(0,2), index = [0])
+#### Get Tables
+srcTable = soup.find_all('table')[3]
+len(srcTable)
+#dataTable = srcTable[3]
+#type(dataTable)
+16/17:
+#print(soup.title.text)  
+#print(soup.title)
+df = pd.DataFrame(columns=range(0,2), index = [0])
+#### Get Tables
+srcTable = soup.find_all('table')[3]
+len(srcTable)
+srcTable
+#dataTable = srcTable[3]
+#type(dataTable)
+16/18:
+#print(soup.title.text)  
+#print(soup.title)
+df = pd.DataFrame(columns=range(0,2), index = [0])
+#### Get Tables
+srcTable = soup.find_all('table')[3]
+len(srcTable)
+srcTable[1]
+#dataTable = srcTable[3]
+#type(dataTable)
+16/19:
+#print(soup.title.text)  
+#print(soup.title)
+df = pd.DataFrame(columns=range(0,2), index = [0])
+#### Get Tables
+srcTable = soup.find_all('table')[3]
+len(srcTable)
+srcTable[0]
+#dataTable = srcTable[3]
+#type(dataTable)
+16/20:
+#print(soup.title.text)  
+#print(soup.title)
+df = pd.DataFrame(columns=range(0,2), index = [0])
+#### Get Tables
+srcTable = soup.find_all('table')[3]
+len(srcTable)
+srcTable
+#dataTable = srcTable[3]
+#type(dataTable)
+16/21:
+#print(soup.title.text)  
+#print(soup.title)
+df = pd.DataFrame(columns=range(0,11), index = [0])
+#### Get Tables
+#srcTable = soup.find_all('table')[3]
+len(srcTable)
+len(df)
+#srcTable
+#dataTable = srcTable[3]
+#type(dataTable)
+16/22:
+#print(soup.title.text)  
+#print(soup.title)
+df = pd.DataFrame(columns=range(0,11), index = [0])
+#### Get Tables
+#srcTable = soup.find_all('table')[3]
+len(srcTable)
+len(df)
+#srcTable
+#dataTable = srcTable[3]
+#type(dataTable)
+row_marker = 0
+for row in srcTable.find_all('tr'):
+    column_marker = 0
+    columns = row.find_all('td')
+    for column in columns:
+        df.iat[row_marker,column_marker] = column.get_text()
+        column_marker += 1
+df
+16/23:
+#print(soup.title.text)  
+#print(soup.title)
+df = pd.DataFrame(columns=range(0,12), index = [0])
+#### Get Tables
+#srcTable = soup.find_all('table')[3]
+len(srcTable)
+len(df)
+#srcTable
+#dataTable = srcTable[3]
+#type(dataTable)
+row_marker = 0
+for row in srcTable.find_all('tr'):
+    column_marker = 0
+    columns = row.find_all('td')
+    for column in columns:
+        df.iat[row_marker,column_marker] = column.get_text()
+        column_marker += 1
+df
+16/24:
+#print(soup.title.text)  
+#print(soup.title)
+df = pd.DataFrame(columns=range(0,12), index = [0])
+#### Get Tables
+#srcTable = soup.find_all('table')[3]
+len(srcTable)
+len(df)
+#srcTable
+#dataTable = srcTable[3]
+#type(dataTable)
+row_marker = 0
+
+trCount = len(srcTable.find_all('tr'))
+for row in srcTable.find_all('tr'):
+    column_marker = 0
+    columns = row.find_all('td')
+    for column in columns:
+        df.iat[row_marker,column_marker] = column.get_text()
+        column_marker += 1
+trCount|
+16/25:
+#print(soup.title.text)  
+#print(soup.title)
+df = pd.DataFrame(columns=range(0,12), index = [0])
+#### Get Tables
+#srcTable = soup.find_all('table')[3]
+len(srcTable)
+len(df)
+#srcTable
+#dataTable = srcTable[3]
+#type(dataTable)
+row_marker = 0
+
+trCount = len(srcTable.find_all('tr'))
+for row in srcTable.find_all('tr'):
+    column_marker = 0
+    columns = row.find_all('td')
+    for column in columns:
+        df.iat[row_marker,column_marker] = column.get_text()
+        column_marker += 1
+trCount
+16/26:
+import html5lib
+import pandas as pd
+import lxml as html
+from io import StringIO
+from bs4 import BeautifulSoup
+
+#------ test w/static file ------# 
+f = open("_FILES/WXDATA.HTML")
+tree = html5lib.parse(f)
+soup = BeautifulSoup(open("_files/WXDATA.HTML"), "html5lib")
+dfStatic = pd.DataFrame(columns=range(0,12), index = [0])
+#--- build dataframee
+trCountStatic = len(srcTable.find_all('tr'))
+for row in srcTable.find_all('tr'):
+    column_marker = 0
+    columns = row.find_all('td')
+    for column in columns:
+        dfStatic.iat[row_marker,column_marker] = column.get_text()
+        column_marker += 1
+trCountStatic
+16/27:
+#print(soup.title.text)  
+#print(soup.title)
+df = pd.DataFrame(columns=range(0,12), index = [0])
+#### Get Tables
+#srcTable = soup.find_all('table')[3]
+len(srcTable)
+len(df)
+#srcTable
+#dataTable = srcTable[3]
+#type(dataTable)
+row_marker = 0
+
+trCount = len(srcTable.find_all('tr'))
+for row in srcTable.find_all('tr'):
+    column_marker = 0
+    columns = row.find_all('td')
+    for column in columns:
+        df.iat[row_marker,column_marker] = column.get_text()
+        column_marker += 1
+trCount
+16/28:
+#------ test w/dynamic source ------# 
+url = 'https://www.glerl.noaa.gov//metdata/mkg/'
+
+#--- build dataframee
+dynTable = pd.DataFrame(columns=range(0,12), index = [0])
+trCountDyn = len(dynTable.find_all('tr'))
+for row in dynTable.find_all('tr'):
+    column_marker = 0
+    columns = row.find_all('td')
+    for column in columns:
+        dynTable.iat[row_marker,column_marker] = column.get_text()
+        column_marker += 1
+trCountDyn
+16/29:
+import html5lib
+import pandas as pd
+import lxml as html
+from io import StringIO
+from bs4 import BeautifulSoup
+
+#------ test w/static file ------# 
+f = open("_FILES/WXDATA.HTML")
+tree = html5lib.parse(f)
+soup = BeautifulSoup(open("_files/WXDATA.HTML"), "html5lib")
+dfStatic = pd.DataFrame(columns=range(0,12), index = [0])
+#--- build dataframee
+trCountStatic = len(srcTable.find_all('tr'))
+for row in srcTable.find_all('tr'):
+    column_marker = 0
+    columns = row.find_all('td')
+    for column in columns:
+        dfStatic.iat[row_marker,column_marker] = column.get_text()
+        column_marker += 1
+trCountStatic
+16/30:
+import html5lib
+import pandas as pd
+import lxml as html
+from io import StringIO
+from bs4 import BeautifulSoup
+
+#------ test w/static file ------# 
+f = open("_FILES/WXDATA.HTML")
+tree = html5lib.parse(f)
+soup = BeautifulSoup(open("_files/WXDATA.HTML"), "html5lib")
+dfStatic = pd.DataFrame(columns=range(0,12), index = [0])
+#--- build dataframee
+trCountStatic = len(srcTable.find_all('tr'))
+for row in srcTable.find_all('tr'):
+    column_marker = 0
+    columns = row.find_all('td')
+    for column in columns:
+        dfStatic.iat[row_marker,column_marker] = column.get_text()
+        column_marker += 1
+trCountStatic
+16/31:
+import html5lib
+import pandas as pd
+import lxml as html
+from io import StringIO
+from bs4 import BeautifulSoup
+
+#------ test w/static file ------# 
+f = open("_FILES/WXDATA.HTML")
+tree = html5lib.parse(f)
+soup = BeautifulSoup(open("_files/WXDATA.HTML"), "html5lib")
+dfStatic = pd.DataFrame(columns=range(0,12), index = [0])
+#--- build dataframee
+trCountStatic = len(srcTable.find_all('tr'))
+for row in srcTable.find_all('tr'):
+    column_marker = 0
+    columns = row.find_all('td')
+    for column in columns:
+        dfStatic.iat[row_marker,column_marker] = column.get_text()
+        column_marker += 1
+trCountStatic
+16/32:
+import html5lib
+import pandas as pd
+import lxml as html
+from io import StringIO
+from bs4 import BeautifulSoup
+
+#------ test w/static file ------# 
+f = open("_FILES/WXDATA.HTML")
+tree = html5lib.parse(f)
+soup = BeautifulSoup(open("_files/WXDATA.HTML"), "html5lib")
+dfStatic = pd.DataFrame(columns=range(0,12), index = [0])
+#--- build dataframee
+trCountStatic = len(srcTable.find_all('tr'))
+for row in srcTable.find_all('tr'):
+    column_marker = 0
+    columns = row.find_all('td')
+    for column in columns:
+        dfStatic.iat[row_marker,column_marker] = column.get_text()
+        column_marker += 1
+#trCountStatic
+16/33:
+import html5lib
+import pandas as pd
+import lxml as html
+from io import StringIO
+from bs4 import BeautifulSoup
+
+#------ test w/static file ------# 
+f = open("_FILES/WXDATA.HTML")
+tree = html5lib.parse(f)
+soup = BeautifulSoup(open("_files/WXDATA.HTML"), "html5lib")
+dfStatic = pd.DataFrame(columns=range(0,12), index = [0])
+#--- build dataframee
+trCountStatic = len(srcTable.find_all('tr'))
+for row in srcTable.find_all('tr'):
+    column_marker = 0
+    columns = row.find_all('td')
+    for column in columns:
+        dfStatic.iat[row_marker,column_marker] = column.get_text()
+        column_marker += 1
+trCountStatic
+16/34:
+#------ test w/dynamic source ------# 
+url = 'https://www.glerl.noaa.gov//metdata/mkg/'
+soup1 = BeautifulSoup(url, "html5lib")
+'''
+#--- build dataframee
+page = pd.read_html( url, flavor='html5lib')
+soup = BeautifulSoup(open("_files/WXDATA.HTML"), "html5lib")
+dfStatic = pd.DataFrame(columns=range(0,12), index = [0])
+#--- build dataframee
+trCountStatic = len(srcTable.find_all('tr'))
+for row in srcTable.find_all('tr'):
+    column_marker = 0
+    columns = row.find_all('td')
+    for column in columns:
+        dfStatic.iat[row_marker,column_marker] = column.get_text()
+        column_marker += 1
+trCountStatic
+'''
+16/35:
+#------ test w/dynamic source ------# 
+url = 'https://www.glerl.noaa.gov//metdata/mkg/'
+page = pd.read_html( url, flavor='html5lib')
+page
+#soup1 = BeautifulSoup(uzrl, "html5lib")
+
+'''
+#--- build dataframee
+page = pd.read_html( url, flavor='html5lib')
+soup = BeautifulSoup(open("_files/WXDATA.HTML"), "html5lib")
+dfStatic = pd.DataFrame(columns=range(0,12), index = [0])
+#--- build dataframee
+trCountStatic = len(srcTable.find_all('tr'))
+for row in srcTable.find_all('tr'):
+    column_marker = 0
+    columns = row.find_all('td')
+    for column in columns:
+        dfStatic.iat[row_marker,column_marker] = column.get_text()
+        column_marker += 1
+trCountStatic
+'''
+16/36:
+#------ test w/dynamic source ------# 
+url = 'https://www.glerl.noaa.gov//metdata/mkg/'
+page = pd.read_html( url, flavor='html5lib')
+page
+16/37:
+#------ test w/dynamic source ------# 
+url = 'https://www.glerl.noaa.gov//metdata/mkg/'
+page = pd.read_html( url, flavor='html5lib')
+len(page)
+16/38:
+#------ test w/dynamic source ------# 
+url = 'https://www.glerl.noaa.gov//metdata/mkg/'
+page = pd.read_html( url, flavor='html5lib')[3]
+len(page)
+16/39:
+#------ test w/dynamic source ------# 
+url = 'https://www.glerl.noaa.gov//metdata/mkg/'
+page = pd.read_html( url, flavor='html5lib')[3]
+len(page)
+type(page)
+16/40:
+#------ test w/dynamic source ------# 
+url = 'https://www.glerl.noaa.gov//metdata/mkg/'
+page = pd.read_html( url, flavor='html5lib')[3]
+len(page)
+page
+   1:
+import html5lib
+import pandas as pd
+import lxml as html
+from io import StringIO
+from bs4 import BeautifulSoup
+   2: url = 'https://www.glerl.noaa.gov//metdata/mkg/'
+   3: url
+   4: src = pd.read_html( url, flavor='html5lib')[3]
+   5: src
+   6: src[0]
+   7: src.drop(src.index[0])
+   8: src
+   9: src.drop(src.index[0], inplace=True)
+  10: src
+  11: src["DOY"]
+  12: src2 = pd.read_html( url, flavor='html5lib', header=1)[3]
+  13: src2.head
+  14: src2.head[1]
+  15: src2.head(0)
+  16: src2.head(10)
+  17: src0 =  pd.read_html( url, flavor='html5lib')[3]
+  18: src0.head(3)
+  19: src.head(3)
+  20: src1.head(3)
+  21: src2.head(3)
+  22: src1.head(3)
+  23: src1 = pd.read_html( url, flavor='html5lib')[3]
+  24: src1.head(3)
+  25: src0.head(3)
+  26: src0.head(3)
+  27: src0.head(3)
+  28: src1.head(3)
+  29: src1.head(3)
+  30: src2.head(3)
+  31: history()
+  32: ?
+  33: help
+  34: help()
+  35: %history
+  36: %history -g
+  37: hist -n
+  38: hist
+  39: hist -n -g
+  40: hist -n
+  41: hist -n -g -f kda_hisotry.txt
